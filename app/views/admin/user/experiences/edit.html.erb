@@ -1,0 +1,25 @@
+<% provide(:title, "Edit user experience") %>
+<h1>Update your portfolio</h1>
+
+<div class="row">
+  <div class="span6 offset3">
+    <%= form_for [:admin, :user, @experience] do |f| %>
+      <%= render 'shared/error_messages', object: f.object %>
+
+      <div class="field">
+        <%= f.label :name %>
+        <%= f.text_field :name %>
+      </div>
+      <div class="field">
+        <%= f.label :year %>
+        <%= f.text_field :year %>
+      </div>
+      <div class="field">
+        <%= f.label :language %>
+        <%= f.text_field :language %>
+      </div>
+
+      <%= f.submit "Save changes", class: "btn btn-large btn-primary" %>
+    <% end %>
+  </div>
+</div>

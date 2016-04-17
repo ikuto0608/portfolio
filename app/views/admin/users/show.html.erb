@@ -1,0 +1,130 @@
+<% provide(:title, @user.full_name) %>
+<div class="row">
+  <aside class="span4">
+    <section>
+      <h1>Who am I.</h1>
+      <table class="table table-bordered table-striped">
+        <tbody>
+          <tr>
+            <td>Name</td>
+            <td><%= @user.full_name %></td>
+          </tr>
+          <tr>
+            <td>Email</td>
+            <td><%= @user.email %></td>
+          </tr>
+          <tr>
+            <td>Occupation</td>
+            <td><%= @user.occupation %></td>
+          </tr>
+          <tr>
+            <td>Live in</td>
+            <td><%= @user.live %></td>
+          </tr>
+          <tr>
+            <td>Avator URL</td>
+            <td><%= @user.avator_url %></td>
+          </tr>
+        </tbody>
+      </table>
+      <%= link_to 'Edit profile', edit_admin_user_path(@user), class: 'btn btn-info' %>
+      <%= link_to 'New experience', new_admin_user_experience_path(@user), class: 'btn btn-info' %>
+      <%= link_to 'New product', new_admin_user_product_path(@user), class: 'btn btn-info' %>
+      <%= link_to 'New skill', new_admin_user_skill_path(@user), class: 'btn btn-info' %>
+      <%= link_to 'New SNS', new_admin_user_sns_path(@user), class: 'btn btn-info' %>
+      <% if @user.admin? %>
+        <%= link_to 'New User', new_admin_user_path, class: 'btn btn-info' %>
+        <%= link_to 'Users', admin_users_path, class: 'btn btn-info' %>
+      <% end %>
+
+      <h1>Experiences</h1>
+      <table class="table table-bordered table-striped">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Year</th>
+            <th>Language</th>
+            <th>Edit</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @user.experiences.each do |e| %>
+            <tr>
+              <td><%= e.name %></td>
+              <td><%= e.year %></td>
+              <td><%= e.language %></td>
+              <td><%= link_to 'Edit', edit_admin_user_experience_path(e) %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+
+      <h1>Products</h1>
+      <table class="table table-bordered table-striped">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Based on</th>
+            <th>Degree</th>
+            <th>URL</th>
+            <th>Edit</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @user.products.each do |p| %>
+            <tr>
+              <td><%= p.name %></td>
+              <td><%= p.based_on %></td>
+              <td><%= p.degree %></td>
+              <td><%= p.url %></td>
+              <td><%= link_to 'Edit', edit_admin_user_product_path(p) %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+
+      <h1>Skills</h1>
+      <table class="table table-bordered table-striped">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Degree</th>
+            <th>Type</th>
+            <th>Edit</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @user.skills.each do |s| %>
+            <tr>
+              <td><%= s.name %></td>
+              <td><%= s.degree %></td>
+              <td><%= s.type %></td>
+              <td><%= link_to 'Edit', edit_admin_user_skill_path(s) %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+
+      <h1>SNS</h1>
+      <table class="table table-bordered table-striped">
+        <thead>
+          <tr>
+            <th>Kind</th>
+            <th>URL</th>
+            <th>Edit</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @user.sns.each do |s| %>
+            <tr>
+              <td><%= Sns::Kind[s.kind].name %></td>
+              <td><%= s.url %></td>
+              <td><%= link_to 'Edit', edit_admin_user_sns_path(s) %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+
+    </section>
+  </aside>
+</div>

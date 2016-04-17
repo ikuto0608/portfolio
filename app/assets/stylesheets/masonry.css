@@ -1,0 +1,230 @@
+* { box-sizing: border-box;}
+
+/* ---- grid-item ---- */
+
+.grid-sizer-1 {
+  width: 180px;
+  height: 180px;
+  margin: 0 auto;
+}
+
+.grid-sizer-2 {
+  width: 360px;
+  height: 360px;
+  margin: 0 auto;
+}
+
+.grid-sizer-3 {
+  width: 360px;
+  height: 360px;
+  margin: 0 auto;
+}
+
+.grid-item {
+  float: left;
+  margin: 0 auto;
+}
+
+.Hobby {
+  background-image: url("famicon_white.png");
+  background-repeat: no-repeat;
+  background-position: right bottom;
+}
+
+.Work {
+  background-image: url("kabuki_white.png");
+  background-repeat: no-repeat;
+  background-position: right bottom;
+}
+
+.Experience {
+  background-image: url("tikyu_white.png");
+  background-repeat: no-repeat;
+  background-position: right bottom;
+}
+
+.Product {
+  background-image: url("bonsai_white.png");
+  background-repeat: no-repeat;
+  background-position: right bottom;
+}
+
+.center {
+   float: none;
+   margin-left: auto;
+   margin-right: auto;
+   align: center;
+}
+
+#masonry-container {
+  margin: 0 auto;
+}
+
+body {
+  background-color: #FCFAF2;
+  font-family: 'EB Garamond', serif;
+}
+
+.navi {
+	width: 100%;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+}
+
+.navi li {
+	width: 120px;
+  height: 130px;
+	padding: 0;
+  font-size: 20px;
+	text-align: center;
+	list-style-type: none;
+  display: inline-block;
+}
+
+.navi li a {
+	text-decoration: none;
+  display: block;
+  padding: 40px 0;
+}
+
+/*clearfix*/
+.navi:after {
+  display: block;
+	clear: both;
+  height: 0;
+  line-height: 0;
+  content: ".";
+  visibility: hidden;
+  font-size: 0.1em;
+}
+
+.i_am {
+  height: 80px;
+  width: 80px;
+  border-radius: 80px;
+  -webkit-border-radius: 80px;
+  -moz-border-radius: 80px;
+}
+
+.grid-sizer-1 p.first {
+  padding: 20px 0 0 20px;
+  font-size: 20px;
+}
+
+.grid-sizer-1 p.second {
+  text-align: center;
+  font-size: 35px;
+}
+
+.grid-sizer-2 p.first {
+  padding: 20px 0 0 20px;
+  font-size: 35px;
+}
+
+.grid-sizer-2 p.second {
+  padding: 60px 0 0 0;
+  text-align: center;
+  font-size: 50px;
+}
+
+.grid-sizer-3 p.first {
+  padding: 20px 0 0 20px;
+  font-size: 35px;
+}
+
+.grid-sizer-3 p.second {
+  padding: 45px 0 0 0;
+  text-align: center;
+  font-size: 50px;
+}
+
+.grid-sizer-1.Experience p.first {
+  padding: 20px 0 0 20px;
+  margin: 0;
+  font-size: 20px;
+}
+
+.grid-sizer-1.Experience p.second {
+  margin: 0;
+  padding: 0 20px 0 0;
+  text-align: right;
+  font-size: 15px;
+}
+
+.grid-sizer-1.Experience p.third {
+  margin: 0;
+  text-align: center;
+  font-size: 30px;
+}
+
+.grid-sizer-1.Experience p.fourth {
+  margin: 0;
+  padding: 0 0 0 20px;
+  text-align: left;
+  font-size: 25px;
+}
+
+.grid-sizer-1.Product p.first {
+  padding: 20px 0 0 20px;
+  margin: 0;
+  font-size: 20px;
+}
+
+.grid-sizer-1.Product p.second {
+  margin: 0;
+  text-align: center;
+  font-size: 25px;
+  font-style: italic;
+}
+
+.grid-sizer-1.Product p.third {
+  margin: 0;
+  padding: 0 0 0 20px;
+  text-align: left;
+  font-size: 30px;
+}
+
+.grid-sizer-1.User p.first {
+  padding: 20px 0 0 20px;
+  margin: 0;
+  font-size: 20px;
+}
+
+.grid-sizer-1.User p.second {
+  margin: 0;
+  font-size: 30px;
+}
+
+.grid-sizer-1.User p.third {
+  margin: 0;
+  padding: 0 20px 0 0;
+  text-align: right;
+  font-size: 20px;
+}
+
+.grid-sizer-1.User p.fourth {
+  margin: 0;
+  padding: 5px 0 0 20px;
+  text-align: left;
+  font-size: 15px;
+}
+
+.grid-sizer-2.Product p.first {
+  padding: 20px 0 0 20px;
+  font-size: 35px;
+}
+
+.grid-sizer-2.Product p.second {
+  padding: 50px 0 0 0;
+  text-align: center;
+  font-size: 30px;
+  font-style: italic;
+}
+
+.grid-sizer-2.Product p.third {
+  margin: 0;
+  padding: 30px 0 0 20px;
+  text-align: left;
+  font-size: 40px;
+}

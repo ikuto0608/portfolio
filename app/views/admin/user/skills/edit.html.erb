@@ -1,0 +1,25 @@
+<% provide(:title, "Edit user") %>
+<h1>Update your portfolio</h1>
+
+<div class="row">
+  <div class="span6 offset3">
+    <%= form_for [:admin, :user, @skill.becomes(Skill)] do |f| %>
+      <%= render 'shared/error_messages', object: f.object %>
+
+      <div class="field">
+        <%= f.label :name %>
+        <%= f.text_field :name %>
+      </div>
+      <div class="field">
+        <%= f.label :degree %>
+        <%= f.text_field :degree %>
+      </div>
+      <div class="field">
+        <%= f.label :type %>
+        <%= f.select :type, ["Skill::Work", "Skill::Hobby"].map {|s| [s, s] }, include_blank: false %>
+      </div>
+
+      <%= f.submit "Save changes", class: "btn btn-large btn-primary" %>
+    <% end %>
+  </div>
+</div>

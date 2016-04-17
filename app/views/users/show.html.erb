@@ -1,0 +1,76 @@
+<main>
+  <div class="row">
+    <div class="grid9">
+      <div id="masonry-container">
+        <div class="grid-item grid-sizer-1 User %>" style="background-color: <%= @user.color %>">
+          <p class="first" style="color: <%= antagonistic_color(@user.color) %>">I'm</p>
+          <p class="second" style="color: <%= antagonistic_color(@user.color) %>"><%= @user.full_name %></p>
+          <p class="third" style="color: <%= antagonistic_color(@user.color) %>"><%= @user.occupation %></p>
+          <p class="fourth" style="color: <%= antagonistic_color(@user.color) %>">Live in <%= @user.live %></p>
+        </div>
+        <% @portfolios.each do |p| %>
+          <% if !p.try(:degree).nil? && p.degree > 1 %>
+            <% case p %>
+            <% when Product %>
+              <div class="grid-item grid-sizer-<%= p.try(:degree).nil? ? 1 : p.degree %> <%= p.class.name.demodulize %>" style="background-color: <%= p.color %>">
+                <p class="first" style="color: <%= antagonistic_color(p.color) %>">I Did Make</p>
+                <p class="second">
+                  <a href="<%= p.url %>" target="_blank" style="color: <%= antagonistic_color(p.color) %>">
+                    <%= p.name %>
+                  </a>
+                </p>
+                <p class="third" style="color: <%= antagonistic_color(p.color) %>">With <%= p.based_on %></p>
+              </div>
+            <% when Experience %>
+              <div class="grid-item grid-sizer-<%= p.try(:degree).nil? ? 1 : p.degree %> <%= p.class.name.demodulize %>" style="background-color: <%= p.color %>">
+                <p class="first" style="color: <%= antagonistic_color(p.color) %>">I'd Worked in</p>
+                <p class="second" style="color: <%= antagonistic_color(p.color) %>"><%= p.name %></p>
+                <p class="third" style="color: <%= antagonistic_color(p.color) %>">Using <%= p.language %></p>
+                <p class="fourth" style="color: <%= antagonistic_color(p.color) %>">For <%= p.year %> YR</p>
+              </div>
+            <% when Skill::Hobby %>
+              <div class="grid-item grid-sizer-<%= p.try(:degree).nil? ? 1 : p.degree %> <%= p.class.name.demodulize %>" style="background-color: <%= p.color %>">
+                <p class="first" style="color: <%= antagonistic_color(p.color) %>">I Do Like</p>
+                <p class="second" style="color: <%= antagonistic_color(p.color) %>"><%= p.name %></p>
+              </div>
+            <% when Skill::Work %>
+              <div class="grid-item grid-sizer-<%= p.try(:degree).nil? ? 1 : p.degree %> <%= p.class.name.demodulize %>" style="background-color: <%= p.color %>">
+                <p class="first" style="color: <%= antagonistic_color(p.color) %>">I Do Prefer</p>
+                <p class="second" style="color: <%= antagonistic_color(p.color) %>"><%= p.name %></p>
+              </div>
+            <% end %>
+          <% else %>
+            <% case p %>
+            <% when Product %>
+              <div class="grid-item grid-sizer-<%= p.try(:degree).nil? ? 1 : p.degree %> <%= p.class.name.demodulize %>" style="background-color: <%= p.color %>">
+                <p class="first" style="color: <%= antagonistic_color(p.color) %>">I Made</p>
+                <p class="second">
+                  <a href="<%= p.url %>" target="_blank" style="color: <%= antagonistic_color(p.color) %>">
+                    <%= p.name %>
+                  </a>
+                </p>
+                <p class="third" style="color: <%= antagonistic_color(p.color) %>">With <%= p.based_on %></p>
+              </div>
+            <% when Experience %>
+              <div class="grid-item grid-sizer-<%= p.try(:degree).nil? ? 1 : p.degree %> <%= p.class.name.demodulize %>" style="background-color: <%= p.color %>">
+                <p class="first" style="color: <%= antagonistic_color(p.color) %>">I'd Worked in</p>
+                <p class="second" style="color: <%= antagonistic_color(p.color) %>"><%= p.name %></p>
+                <p class="third" style="color: <%= antagonistic_color(p.color) %>">Using <%= p.language %></p>
+                <p class="fourth" style="color: <%= antagonistic_color(p.color) %>">For <%= p.year %> YR</p>
+              </div>
+            <% when Skill::Hobby %>
+              <div class="grid-item grid-sizer-<%= p.try(:degree).nil? ? 1 : p.degree %> <%= p.class.name.demodulize %>" style="background-color: <%= p.color %>">
+                <p class="first" style="color: <%= antagonistic_color(p.color) %>">I Like</p>
+                <p class="second" style="color: <%= antagonistic_color(p.color) %>"><%= p.name %></p>
+              </div>
+            <% when Skill::Work %>
+              <div class="grid-item grid-sizer-<%= p.try(:degree).nil? ? 1 : p.degree %> <%= p.class.name.demodulize %>" style="background-color: <%= p.color %>">
+                <p class="first" style="color: <%= antagonistic_color(p.color) %>">I Prefer</p>
+                <p class="second" style="color: <%= antagonistic_color(p.color) %>"><%= p.name %></p>
+              </div>
+            <% end %>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+</main>

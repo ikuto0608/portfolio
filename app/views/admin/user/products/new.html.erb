@@ -1,0 +1,33 @@
+<% provide(:title, 'New product') %>
+<h1>New product</h1>
+
+<div class="row">
+  <div class="span6 offset3">
+    <%= form_for [:admin, :user, @product] do |f| %>
+      <%= render 'shared/error_messages', object: f.object %>
+
+      <div class="field">
+        <%= f.label :name %>
+        <%= f.text_field :name %>
+      </div>
+      <div class="field">
+        <%= f.label :about %>
+        <%= f.text_field :about %>
+      </div>
+      <div class="field">
+        <%= f.label :based_on %>
+        <%= f.text_field :based_on %>
+      </div>
+      <div class="field">
+        <%= f.label :url %>
+        <%= f.text_field :url %>
+      </div>
+      <div class="field">
+        <%= f.label :degree %>
+        <%= f.text_field :degree %>
+      </div>
+
+      <%= f.submit "Create my product", class: "btn btn-large btn-primary" %>
+    <% end %>
+  </div>
+</div>

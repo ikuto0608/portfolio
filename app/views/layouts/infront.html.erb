@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Portfolio</title>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
+    <link href='https://fonts.googleapis.com/css?family=EB+Garamond' rel='stylesheet' type='text/css'>
+  </head>
+  <body>
+    <ul class="navi">
+      <li><a href="#" class="skills_list">Skill</a></li>
+      <li><a href="#" class="experiences_list">Experience</a></li>
+      <li><a href="#" class="portofolios_list"><img src="<%= @user.avator_url %>" alt="<%= @user.full_name %>" class="i_am"></a></li>
+      <li><a href="#" class="products_list">Product</a></li>
+      <li><a href="#" class="hobbies_list">Hobby</a></li>
+    </ul>
+    <div class="container">
+      <% flash.each do |key, value| %>
+        <div class="alert alert-<%= key %>"><%= value %></div>
+      <% end %>
+      <%= yield %>
+    </div>
+    <footer>
+      <ul class="navi">
+        <% if @user.sns.present? %>
+          <% @user.sns.each do |s| %>
+            <li>
+              <a href="<%= s.url %>" target="_blank">
+                <img alt="<%= Sns::Kind[s.kind].name %>" src="/assets/<%= Sns::Kind[s.kind].name.downcase %>.png" class="i_am" />
+              </a>
+            </li>
+          <% end %>
+        <% end %>
+      </ul>
+    </footer>
+  </body>
+</html>
