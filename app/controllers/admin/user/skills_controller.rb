@@ -1,6 +1,6 @@
 class Admin::User::SkillsController < ApplicationController
   before_action :signed_in_user, only: [:index, :create, :edit, :update, :destroy]
-  before_action :correct_skill, only: :destroy
+  before_action :correct_skill, only: [:update, :destroy]
 
   def index
   end
@@ -25,6 +25,12 @@ class Admin::User::SkillsController < ApplicationController
   end
 
   def update
+    if @skill.update_attributes(skill_params)
+      flash[:success] = "Skill updated"
+      redirect_to admin_user_path(current_user)
+    else
+      render 'edit'
+    end
   end
 
   def destroy

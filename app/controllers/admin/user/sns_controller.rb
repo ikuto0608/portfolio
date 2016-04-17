@@ -1,6 +1,6 @@
 class Admin::User::SnsController < ApplicationController
   before_action :signed_in_user, only: [:index, :create, :edit, :update, :destroy]
-  before_action :correct_sns, only: :destroy
+  before_action :correct_sns, only: [:update, :destroy]
 
   def index
   end
@@ -25,6 +25,12 @@ class Admin::User::SnsController < ApplicationController
   end
 
   def update
+    if @sns.update_attributes(sns_params)
+      flash[:success] = "SNS updated"
+      redirect_to admin_user_path(current_user)
+    else
+      render 'edit'
+    end
   end
 
   def destroy

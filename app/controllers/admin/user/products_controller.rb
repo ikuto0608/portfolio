@@ -1,6 +1,6 @@
 class Admin::User::ProductsController < ApplicationController
   before_action :signed_in_user, only: [:index, :create, :edit, :update, :destroy]
-  before_action :correct_product, only: :destroy
+  before_action :correct_product, only: [:update, :destroy]
 
   def index
   end
@@ -25,6 +25,12 @@ class Admin::User::ProductsController < ApplicationController
   end
 
   def update
+    if @product.update_attributes(product_params)
+      flash[:success] = "Product updated"
+      redirect_to admin_user_path(current_user)
+    else
+      render 'edit'
+    end
   end
 
   def destroy
