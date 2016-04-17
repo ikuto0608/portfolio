@@ -23,6 +23,11 @@
     </div>
     <footer>
       <ul class="navi">
+        <li>
+          <a href="mailto:<%= @user.email %>">
+            <img alt="<%= Mail %>" src="/assets/mail.png" class="i_am" />
+          </a>
+        </li>
         <% if @user.sns.present? %>
           <% @user.sns.each do |s| %>
             <li>
