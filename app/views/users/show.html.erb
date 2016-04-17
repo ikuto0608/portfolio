@@ -4,7 +4,7 @@
       <div id="masonry-container">
         <div class="grid-item grid-sizer-1 User %>" style="background-color: <%= @user.color %>">
           <p class="first" style="color: <%= antagonistic_color(@user.color) %>">I'm</p>
-          <p class="second" style="color: <%= antagonistic_color(@user.color) %>"><%= @user.full_name %></p>
+          <p class="second" style="color: <%= antagonistic_color(@user.color) %>"><%= @user.first_name %> <%= @user.last_name %></p>
           <p class="third" style="color: <%= antagonistic_color(@user.color) %>"><%= @user.occupation %></p>
           <p class="fourth" style="color: <%= antagonistic_color(@user.color) %>">Live in <%= @user.live %></p>
         </div>
