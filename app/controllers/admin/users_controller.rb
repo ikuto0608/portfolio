@@ -20,7 +20,7 @@ class Admin::UsersController < ApplicationController
     @user = ::User.new(user_params)
     @user.full_name = @user.first_name + "." + @user.last_name
     if @user.save
-      sign_in @user
+      sign_in(@user)
       flash[:success] = "Welcome to the Portfolio App!"
       redirect_to [:admin, @user]
     end
