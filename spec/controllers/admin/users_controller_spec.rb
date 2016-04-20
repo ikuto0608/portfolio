@@ -4,7 +4,7 @@ include Admin::SessionsHelper
 RSpec.describe Admin::UsersController do
   let(:user) {FactoryGirl.create(:user) }
 
-  before { sign_in(user) }
+  before {sign_in(user) }
 
   describe "GET index" do
     it "has a 200 status code with admin" do
