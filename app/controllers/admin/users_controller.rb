@@ -1,7 +1,7 @@
 class Admin::UsersController < ApplicationController
   before_action :signed_in_user, only: [:index, :show, :create, :edit, :update, :destroy]
-  before_action :correct_user, only: [:edit, :update]
-  before_action :admin_user, only: [:index, :new]
+  before_action :correct_user, only: [:show, :edit, :update]
+  before_action :admin_user?, only: [:index, :new]
 
   def index
     @users = User.all.to_a
@@ -20,9 +20,8 @@ class Admin::UsersController < ApplicationController
     @user = ::User.new(user_params)
     @user.full_name = @user.first_name + "." + @user.last_name
     if @user.save
-      sign_in(@user)
-      flash[:success] = "Welcome to the Portfolio App!"
-      redirect_to [:admin, @user]
+      flash[:success] = "Create User!"
+      redirect_to admin_users_path
     end
   end
 
@@ -54,7 +53,7 @@ class Admin::UsersController < ApplicationController
       redirect_to(admin_login_path) unless current_user?(@user)
     end
 
-    def admin_user
+    def admin_user?
       redirect_to(admin_user_path(current_user)) unless current_user.admin?
     end
 end
