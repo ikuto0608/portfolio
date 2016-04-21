@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Portfolio</title>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
+    <link href='https://fonts.googleapis.com/css?family=EB+Garamond' rel='stylesheet' type='text/css'>
+  </head>
+  <body>
+    <div class="users_list">
+      <div id="masonry-container">
+        <% @users.each do |user| %>
+          <div class="grid-item grid-sizer-1">
+            <%= link_to image_tag("#{user.avator_url}", class: "we_are"), {:action => 'show', :controller => 'users', :full_name => user.full_name } %>
+            <p class="name"><%= user.full_name %></p>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </body>
+</html>
