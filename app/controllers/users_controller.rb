@@ -1,5 +1,10 @@
 class UsersController < ApplicationController
-  layout 'infront'
+  layout 'infront', only: :show
+
+  def index
+    @users = User.all.to_a
+    render :layout => false
+  end
 
   def show
     @user = User.eager_load(:experiences, :products, :skills, :sns)
