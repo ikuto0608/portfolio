@@ -11,7 +11,9 @@
       <% flash.each do |key, value| %>
         <div class="alert alert-<%= key %>"><%= value %></div>
       <% end %>
-      <%= link_to 'Logout', admin_logout_path, method: :delete, class: 'btn btn-danger' %>
+      <% if signed_in? %>
+        <%= link_to 'Logout', admin_logout_path, method: :delete, class: 'btn btn-danger' %>
+      <% end %>
       <%= yield %>
     </div>
   </body>
