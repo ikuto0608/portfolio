@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  layout 'infront', only: :show
+  layout '_frame', only: :show
 
   def index
     @users = User.all.to_a
