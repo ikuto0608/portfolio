@@ -13,7 +13,7 @@
             <% case p %>
             <% when Product %>
               <div class="grid-item grid-sizer-<%= p.try(:degree).nil? ? 1 : p.degree %> <%= p.class.name.demodulize %>" style="background-color: <%= p.color %>">
-                <p class="first" style="color: <%= antagonistic_color(p.color) %>">I Did Make</p>
+                <p class="first" style="color: <%= antagonistic_color(p.color) %>">I Made</p>
                 <p class="second">
                   <a href="<%= p.url %>" target="_blank" style="color: <%= antagonistic_color(p.color) %>">
                     <%= p.name %>
@@ -30,12 +30,12 @@
               </div>
             <% when Skill::Hobby %>
               <div class="grid-item grid-sizer-<%= p.try(:degree).nil? ? 1 : p.degree %> <%= p.class.name.demodulize %>" style="background-color: <%= p.color %>">
-                <p class="first" style="color: <%= antagonistic_color(p.color) %>">I Do Like</p>
+                <p class="first" style="color: <%= antagonistic_color(p.color) %>">I Like</p>
                 <p class="second" style="color: <%= antagonistic_color(p.color) %>"><%= p.name %></p>
               </div>
             <% when Skill::Work %>
               <div class="grid-item grid-sizer-<%= p.try(:degree).nil? ? 1 : p.degree %> <%= p.class.name.demodulize %>" style="background-color: <%= p.color %>">
-                <p class="first" style="color: <%= antagonistic_color(p.color) %>">I Do Prefer</p>
+                <p class="first" style="color: <%= antagonistic_color(p.color) %>">I Prefer</p>
                 <p class="second" style="color: <%= antagonistic_color(p.color) %>"><%= p.name %></p>
               </div>
             <% end %>
